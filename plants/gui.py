@@ -70,7 +70,6 @@ class SelectionScreen(tk.Tk):
         self.options = OrderedDict(list_of_tuples)
 
         for attribute, properties in self.options.items():
-
             self.checkbox_frame(title=attribute, options=properties, row=row, column=column)
             if column <= max_column_length:
                 column += 1
@@ -91,10 +90,10 @@ class SelectionScreen(tk.Tk):
         frame.grid(row=row, column=column, sticky=tk.N)
         frame.pack_propagate(1)
 
-        title = title.replace('_', ' ').capitalize()
-        if 'max' in title.lower() or 'min' in title.lower():
-            title = f'{title} (m)'
-        label = tk.Label(frame, text=title, fg='red')
+        display_title = title.replace('_', ' ').capitalize()
+        if 'max' in display_title.lower() or 'min' in display_title.lower():
+            display_title = f'{display_title} (m)'
+        label = tk.Label(frame, text=display_title, fg='red')
         label.grid(row=0, column=0)
 
         if 'None' in options:
@@ -103,14 +102,12 @@ class SelectionScreen(tk.Tk):
             options.append('None')
         else:
             options.sort()
-        options = [str(p).replace('_', ' ') for p in options]
 
         row = 1
         for option in options:
-            print(option)
             var = tk.IntVar()
             var.set(1)
-            box = tk.Checkbutton(frame, text=str(option), variable=var)
+            box = tk.Checkbutton(frame, text=str(option).replace('_', ' '), variable=var)
             box.grid(row=row, column=0, sticky=tk.W)
             row += 1
             if title in self.checkbox_state:
