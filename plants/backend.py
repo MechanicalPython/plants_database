@@ -141,10 +141,10 @@ def plant_options(options=None):
     """
     if options is None:
         options = ['Foligae', 'Habit', 'Hardiness', 'Sunlight', 'Aspect', 'Exposure', 'Soil_type', 'Moisture', 'pH',
-                   'Max_height', 'Min_height', 'Max_spread', 'Min_spread', 'Time_to_height', 'Favourite',
-                   'plant_native', 'plant_is_fragrant', 'plant_awards', 'plant_pollination', 'plant_garden_type',
-                   'plant_planting_places', 'flower', 'foliage', 'fruit', 'stem', 'spring', 'summer', 'autumn',
-                   'winter', 'plant_plant_type']
+                   'Max_height', 'Min_height', 'Max_spread', 'Min_spread', 'Time_to_height', 'Favourite']
+                   # 'plant_native', 'plant_is_fragrant', 'plant_awards', 'plant_pollination', 'plant_garden_type',
+                   # 'plant_planting_places', 'flower', 'foliage', 'fruit', 'stem', 'spring', 'summer', 'autumn',
+                   # 'winter', 'plant_plant_type']
 
     options_dict = {}
     for option in options:

@@ -263,8 +263,6 @@ class ConfirmationWindow(tk.Toplevel):
         details = tk.Label(frame, text=attributes['Details'], wraplength=300, justify=tk.LEFT)
         details.grid(row=row, column=2, sticky=tk.E)
 
-        # frame.pack()
-
     def on_frame_configure(self, event=None):
         self.plants_canvas.configure(scrollregion=self.plants_canvas.bbox("all"))
 

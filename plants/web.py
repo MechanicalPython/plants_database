@@ -20,17 +20,19 @@ from plants.util import sha1hash, timer
 
 from datetime import datetime as time
 
-home = os.path.expanduser(('~'))
-webcach_dir = os.path.abspath(f'{home}/Cache/webpages')
+if os.path.exists(f'/Users/Matt/pyprojects/plants/Resources'):
+    cache_dir = f'/Users/Matt/pyprojects/plants/Cache'
+else:
+    cache_dir = f"{__file__.split('.app')[0]}.app/Contents/Cache"
 
 
 def cache(func):
     """Requires the first argument to be a url.
     Also saves the pages as a string"""
 
-    if os.path.exists(webcach_dir) is False:
+    if os.path.exists(cache_dir) is False:
         # os.mkdir(os.path.dirname(webcach_dir))
-        os.mkdir(webcach_dir)
+        os.mkdir(cache_dir)
 
     @wraps(func)
     def load_cache(*args, **kwargs):
@@ -39,15 +41,15 @@ def cache(func):
         if re.match('http[s]?://', url) is None:
             raise BaseException('First argument needs to be a url')
 
-        if urlhash in os.listdir(webcach_dir) and os.path.getsize(f'{webcach_dir}/{urlhash}') > 0:
-            with open(f'{webcach_dir}/{urlhash}', 'rb') as readfile:
+        if urlhash in os.listdir(cache_dir) and os.path.getsize(f'{cache_dir}/{urlhash}') > 0:
+            with open(f'{cache_dir}/{urlhash}', 'rb') as readfile:
                 file = pickle.load(readfile)
                 t1 = time.now()
                 r = bs4.BeautifulSoup(file, features='html.parser')
                 return r
         else:
             soup = func(*args, **kwargs)
-            with open(f'{webcach_dir}/{urlhash}', 'wb') as writefile:
+            with open(f'{cache_dir}/{urlhash}', 'wb') as writefile:
                 pickle.dump(str(soup), writefile)
             return soup
     return load_cache
@@ -98,14 +100,14 @@ def get_soup(url, cache=True):
         raise BaseException('First argument needs to be a url')
 
     urlhash = f'{sha1hash(url)}.html'
-    if cache and urlhash in os.listdir(webcach_dir) and os.path.getsize(f'{webcach_dir}/{urlhash}') > 0:
-        with open(f'{webcach_dir}/{urlhash}', 'rb') as readfile:
+    if cache and urlhash in os.listdir(cache_dir) and os.path.getsize(f'{cache_dir}/{urlhash}') > 0:
+        with open(f'{cache_dir}/{urlhash}', 'rb') as readfile:
             file = pickle.load(readfile)
             r = bs4.BeautifulSoup(file, features='html.parser')  # ~0.15s to load.
             return r
     else:
         soup = download(url)
-        with open(f'{webcach_dir}/{urlhash}', 'wb') as writefile:
+        with open(f'{cache_dir}/{urlhash}', 'wb') as writefile:
             pickle.dump(str(soup), writefile)
         return soup
 
