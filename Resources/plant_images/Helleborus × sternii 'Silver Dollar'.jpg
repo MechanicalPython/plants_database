@@ -1,0 +1,510 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Page not found / RHS Gardening</title>
+<meta name="Keywords" content="Flower shows, Royal Horticultural Society, RHS, Gardening for All, Charity" />
+<meta name="Description" content=" A Gardening website - The website of Britain's gardening charity - the Royal Horticultural Society (RHS) - is the gateway to gardening. The RHS is the world's leading horticultural organisation and the UK's leading gardening charity. Our aim is to protect Britain's gardening heritage and help gardeners everywhere" />
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="Copyright" content="Royal Horticultural Society" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	<!--   <link id="ctl00_ctl00_ctl00_ctl00_cssFontDeck" rel="stylesheet" href="http://f.fontdeck.com/s/css/c15XXXVKERbYpH5rOxzjp7KDEYY/162.13.147.113/15419.css" type="text/css" /> -->
+
+	<link rel="stylesheet" type="text/css" href="https://www.rhs.org.uk/assets/styles/compiled-css/app.css" media="screen, projection" />
+	<link rel="stylesheet" type="text/css" href="https://www.rhs.org.uk/assets/styles/f2/web/assets/css/main.min.css" media="screen, projection" />
+	<link rel="stylesheet" type="text/css" href="https://www.rhs.org.uk/assets/styles/css/generic/print.css" media="print" />
+
+	<!-- Development CSS -->
+	<link rel="stylesheet" type="text/css" href="/css/apps.css" media="screen, projection" />
+
+	<!-- JQuery Core -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+	<!-- JQuery Mobile -->
+    <script src="https://www.rhs.org.uk/assets/csjs/jQuery/jquery.mobile.custom.min.js"></script>
+
+
+    <!-- Load AngularJS Core -->
+    <script src="https://www.rhs.org.uk/assets/csjs/rhs/app/frameworks/angular/angular-1.4.8.min.js" type="text/javascript"></script>
+    <script src="https://www.rhs.org.uk/assets/csjs/rhs/app/frameworks/angular/angular-route.min.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript" src="/js/jquery.dotdotdot.min.js" ></script>
+<!--    <script src="https://www.rhs.org.uk/assets/responsive/js/js/vendor/plugins.js"></script> -->
+    <script src="https://www.rhs.org.uk/assets/csjs/rhs/responsive/plugins.js"></script>
+
+    <!-- Swipe for mobile secondary nav -->
+    <script src="https://www.rhs.org.uk/assets/csjs/rhs/nav.js"></script>
+
+
+    <script type="text/javascript" src="/js/jquery.rhsNewsLetter.js" ></script>
+    <script type="text/javascript" src="/js/jquery.rhssiteheader.js" ></script>
+
+
+
+	<!-- Load Modernizr - this is a development version and will need to be replaced with a slimmed down minified version -->
+	<script src="https://www.rhs.org.uk/assets/csjs/thirdparty/modernizr/modernizr-custom.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Google Tag Manager – RHS -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-W56PDL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W56PDL');</script>
+<!-- End Google Tag Manager – RHS -->
+ 
+<!-- Google Tag Manager – Carat -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WLXVR9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','caratDataLayer','GTM-WLXVR9');</script>
+<!-- End Google Tag Manager – Carat -->
+
+
+
+
+    <div class="jquery-inner-wrapper">
+
+    	<div class="shortcuts">
+            <ul>
+                <li><a href="#skip-content" accesskey="1">Skip to content [Accesskey '1']</a></li>
+                <li><a href="#skip-nav" accesskey="2">Skip to navigation [Accesskey '2']</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="header clr">
+
+        <div class="content">
+
+            <div class="logo">
+                <a href="https://www.rhs.org.uk/"><img src="https://www.rhs.org.uk/assets/styles/images/content/rhs-logo-horizontal.png" width="313" height="53" alt="Royal Horticultural Society - Sharing the Best in Gardening"></a>
+            </div>
+
+            <div class="global-account-search">
+                <!--<ul class="account">
+                    <li>
+                        <a href="#" class="jsAccountTrigger"><img src="https://www.rhs.org.uk/assets/styles/images/content/tools-acct-avatar.png" alt="avatar">Adam Buxton</a>
+                    </li>
+                </ul>-->
+                <fieldset>
+                    <label for="search-fld">Search the RHS</label>
+                    <input type="text" placeholder="Search the RHS" class="search-fld" id="search-fld" />
+                    <input type="image" src="https://www.rhs.org.uk/assets/styles/images/bg/global-inp-search.png" class="search-btn" alt="Search" />
+                </fieldset>
+            </div>
+
+        </div>
+    
+	
+    <!-- Account Panel -->
+
+        <div class="account-panel clr">
+        
+            <div class="account-inner">
+            
+                <div class="content clr">
+        
+                    <div class="coms-notebook">
+                        <h2>Welcome back Adam!</h2>
+                        <ul>
+                            <li><a href="/msg-centre"><span class="new-msg">1 new</span> message from RHS Support</a></li>
+                            <li><a href="/msg-centre"><span class="new-reply">1 new</span> reply to your comment</a></li>
+                            <li class="info">Your membership is about to lapse in 2 days. <a href="#">Renew</a></li>
+                        </ul>
+                        
+                    </div>
+        
+                    <div class="local-garden">
+                        <h2>Your local garden</h2>
+                        <h3>RHS Wisley</h3>
+                        <h4><a href="">Fritillaria Group Autumn Show</a></h4>
+                        <p class="date">30 Sept - 12 Oct</p>
+                        <p>Wisterias with long flower racemes are best admired on structures where they can hang free...</p>
+                    </div>
+        
+                    <div class="your-account">
+                        <h2>Your account</h2>
+                        <ul>
+                            <li class="personal-details"><a href="">Personal Details</a></li>
+                            <li class="membership-details"><a href="">Membership Details</a></li>
+                            <li class="newsletters"><a href="">Newsletters</a></li>
+                            <li class="message-center"><a href="">Message Centre</a></li>
+                            <li class="sign-out"><a href="">Sign out</a></li>
+                        </ul>
+                    </div>
+        
+                </div>
+            
+            </div>
+            
+        </div>
+       
+    <!-- /Account Panel -->
+
+    <div>
+        
+        <div id="primaryNav" class="content">
+
+                <div class="primary-nav clr" >
+
+                <ul>
+                    <li> <a href="https://www.rhs.org.uk/">Home<span></span></a></li>
+                    <li>
+                        <a href="https://www.rhs.org.uk/plants">Plants<span></span></a>
+                        <div class="two-col">
+                            <ul>
+                                <li><a href="https://www.rhs.org.uk/plants/search-Form">Find a plant</a></li>
+                                <li><a href="https://www.rhs.org.uk/plants/bulbs">Bulbs</a></li>
+                                <li><a href="https://www.rhs.org.uk/plants/annuals">Annuals</a></li>
+                                <li><a href="https://www.rhs.org.uk/plants/perennials">Perennials</a></li>
+                                <li><a href="https://www.rhs.org.uk/plants/trees">Trees</a></li>
+                                <li><a href="https://www.rhs.org.uk/plants/shrubs">Shrubs</a></li>
+                                <li><a href="https://www.rhs.org.uk/plants/climbers">Climbers</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="https://www.rhs.org.uk/plants/fruit">Fruit</a></li>
+                                <li><a href="https://www.rhs.org.uk/plants/vegetables">Veg</a></li>
+                                <li><a href="https://www.rhs.org.uk/plants/herbs">Herbs</a></li>
+                                <li><a href="https://www.rhs.org.uk/plants/greenhouse">Greenhouse</a></li>
+                                <li><a href="https://www.rhs.org.uk/plants/trials-awards">Trials &amp; awards</a></li>
+                                <li><a href="https://www.rhs.org.uk/plants/plantsmanship">Plantsmanship</a></li>
+                                <li><a href="https://www.rhs.org.uk/plants/blogs">Blogs</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://www.rhs.org.uk/advice">Advice<span></span></a>
+                        <div class="two-col">
+                            <ul>
+                                <li><a href="https://www.rhs.org.uk/advice/inmonth/october">In October</a></li>
+                                <li><a href="https://www.rhs.org.uk/advice/beginners-guide">Beginners' guide</a></li>
+                                <li><a href="https://www.rhs.org.uk/advice/design">Garden design</a></li>
+                                <li><a href="https://www.rhs.org.uk/advice/grow-your-own">Grow Your Own</a></li>
+                                <li><a href="https://www.rhs.org.uk/advice/plant-care">Plant care</a></li>
+                                <li><a href="https://www.rhs.org.uk/advice/plant-problems">Plant problems</a></li>                                
+                            </ul>
+                            <ul>
+                                <li><a href="https://www.rhs.org.uk/advice/garden-features">Garden features</a></li>
+                                <li><a href="https://www.rhs.org.uk/advice/wildlife-garden">Wildlife garden</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://www.rhs.org.uk/gardens">Gardens<span></span></a>
+                        <div>
+                            <ul>
+                                <li><a href="https://www.rhs.org.uk/gardens/harlow-carr">Harlow Carr</a></li>
+                                <li><a href="https://www.rhs.org.uk/gardens/hyde-hall">Hyde Hall</a></li>                             
+                                <li><a href="https://www.rhs.org.uk/gardens/rosemoor">Rosemoor</a></li>                             
+                                <li><a href="https://www.rhs.org.uk/gardens/wisley">Wisley</a></li>                             
+                                <li><a href="https://www.rhs.org.uk/gardens/what-s-on">What's on</a></li>                             
+                                <li><a href="https://www.rhs.org.uk/gardens/partner-gardens">Partner Gardens</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://www.rhs.org.uk/shows-events">Shows &amp; events<span></span></a>
+                        <div>
+                            <ul>
+                                <li><a href="https://www.rhs.org.uk/shows-events/rhs-flower-show-cardiff">Cardiff</a></li>
+                                <li><a href="https://www.rhs.org.uk/shows-events/malvern-spring-gardening-show">Malvern spring</a></li>
+                                <li><a href="https://www.rhs.org.uk/shows-events/rhs-chelsea-flower-show">Chelsea</a></li>
+                                <li><a href="https://www.rhs.org.uk/shows-events/bbc-gardeners-world-live">Gardeners' World Live</a></li>
+                                <li><a href="https://www.rhs.org.uk/shows-events/rhs-hampton-court-palace-flower-show">Hampton Court Palace</a></li>
+                                <li><a href="https://www.rhs.org.uk/shows-events/rhs-flower-show-tatton-park">Tatton Park</a></li>                             
+                                <li><a href="https://www.rhs.org.uk/shows-events/rhs-london-shows">London shows</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://www.rhs.org.uk/shop">Shop<span></span></a>
+                        <div>
+                            <ul>
+                                <li><a href="https://www.rhs.org.uk/shop/books-gifts">Books &amp; gifts</a></li>
+                                <li><a href="https://www.rhs.org.uk/shop/rhs-plants">Plants</a></li>
+                                <li><a href="https://www.rhs.org.uk/shop/rhs-prints">Prints</a></li>
+                                <li><a href="https://www.rhs.org.uk/shop/rhs-holidays">Holidays</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://www.rhs.org.uk/communities">Communities<span></span></a>
+                        <div>
+                            <ul>
+                                <li><a href="https://www.rhs.org.uk/communities/campaigns">Our campaigns</a></li>
+                                <li><a href="https://www.rhs.org.uk/communities/get-involved">Get involved</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://www.rhs.org.uk/education-learning">Education<span></span></a>
+                        <div class="far-right">
+                            <ul>
+                                <li><a href="https://www.rhs.org.uk/education-learning/qualifications-and-training">Qualifications &amp; training</a></li>
+                                <li><a href="https://www.rhs.org.uk/education-learning/courses-workshops">Courses &amp; workshops</a></li>                             
+                                <li><a href="https://www.rhs.org.uk/education-learning/bursaries-grants">Bursaries</a></li>                             
+                                <li><a href="https://www.rhs.org.uk/education-learning/careers">Careers in horticulture</a></li>                             
+                                <li><a href="https://www.rhs.org.uk/education-learning/kids-schools">Schools &amp; children</a></li>                             
+                                <li><a href="https://www.rhs.org.uk/education-learning/libraries">Libraries</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://www.rhs.org.uk/science">Science &amp; environment<span></span></a>
+                        <div class="far-right">
+                            <ul>
+                                <li><a href="https://www.rhs.org.uk/science/environmentally-friendly-gardening">Environmentally-friendly gardening</a></li>
+                                <li><a href="https://www.rhs.org.uk/science/plant-health-pests-and-diseases">Plant Pests &amp; Diseases</a></li>
+                                <li><a href="https://www.rhs.org.uk/science/conservation-biodiversity">Conservation &amp; biodiversity</a></li>
+                                <li><a href="https://www.rhs.org.uk/science/help-our-research">Help our research</a></li>
+                                <li><a href="https://www.rhs.org.uk/science/meet-the-team">Meet the team</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://www.rhs.org.uk/about-the-rhs">About us<span></span></a>
+                        <div class="far-right">
+                            <ul>
+                                <li><a href="https://www.rhs.org.uk/about-the-rhs/mission-strategy">Mission &amp; strategy</a></li>
+                                <li><a href="https://www.rhs.org.uk/about-the-rhs/our-structure">Our structure</a></li>
+                                <li><a href="https://www.rhs.org.uk/about-the-rhs/support-us">Support us</a></li>
+                                <li><a href="https://www.rhs.org.uk/about-the-rhs/commercial-opportunities">Commercial opportunities</a></li>
+                                <li><a href="https://www.rhs.org.uk/about-the-rhs/publications">Publications</a></li>
+                                <li><a href="https://www.rhs.org.uk/about-the-rhs/work-for-the-rhs">Careers</a></li>
+                                <li><a href="https://www.rhs.org.uk/about-the-rhs/contact-us">Contact us</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://www.rhs.org.uk/about-rhs-membership">Membership<span></span></a>
+                        <div class="far-right">
+                            <ul>
+                                <li><a href="https://www.rhs.org.uk/join">Join</a></li>
+                                <li><a href="https://www.rhs.org.uk/about-rhs-membership/membership-offers">Membership offers</a></li>
+                                <li><a href="https://www.rhs.org.uk/about-rhs-membership/rhs-advisory-service">RHS Advisory Services</a></li>
+                                <li><a href="https://www.rhs.org.uk/about-rhs-membership/membership-terms-conditions">Terms &amp; conditions</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+</div>
+            <!-- navigation -->
+            <div style="z-index:4; position:relative">
+            
+
+<div class="secondary-nav" id="skip-nav" >
+    <div class="breadcrumb-bg"></div>
+        <div id="divContent" class="content">
+            <ul class="breadcrumb-nav" >
+                <li class="level-one"><a href="https://www.rhs.org.uk/plants">Plants</a></li>
+            </ul>
+            <ul class="present-nav">
+                <li><a href="https://www.rhs.org.uk/plants/Bulbs"><span>Bulbs</span></a></li>
+                <li><a href="https://www.rhs.org.uk/plants/Annuals"><span>Annuals</span></a></li>
+                <li><a href="https://www.rhs.org.uk/plants/Perennials"><span>Perennials</span></a></li>
+                <li><a href="https://www.rhs.org.uk/plants/Trees"><span>Trees</span></a></li>
+                <li><a href="https://www.rhs.org.uk/plants/Shrubs"><span>Shrubs</span></a></li>
+                <li><a href="https://www.rhs.org.uk/plants/Climbers"><span>Climbers</span></a></li>
+                <li><a href="https://www.rhs.org.uk/plants/Herbs"><span>Herbs</span></a></li>
+                <li><a href="https://www.rhs.org.uk/plants/Greenhouse"><span>Greenhouse</span></a></li>
+                <li><a href="https://www.rhs.org.uk/plants/fruit"><span>Fruit</span></a></li>
+                <li><a href="https://www.rhs.org.uk/plants/vegetables"><span>Veg</span></a></li>
+                <li><a href="https://www.rhs.org.uk/plants/trials-awards"><span>Trials &amp; awards</span></a></li>
+                <li><a href="https://www.rhs.org.uk/plants/plantsmanship"><span>Plantsmanship</span></a></li>
+                <li><a href="https://www.rhs.org.uk/plants/plants-blogs"><span>Blogs</span></a></li></ul></div>  
+</div>
+
+ 
+            </div>
+            <!-- end navigation -->
+        </div>    
+    </div>
+    <!-- header section -->
+
+
+    <div class="content find-plant-button">
+
+        <a class="btn-2 fr" href="https://www.rhs.org.uk/plants/search-form"><span><span>Find a plant<span class="ico-raquo"></span></span></span></a>
+    
+    </div>
+
+
+    <div class="page clr" id="skip-content" >
+		<div class="span-12">
+			<h1>Page not found</h1>
+			<div class="span-12 newbread"> <span><a href="http://www.rhs.org.uk/">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+				<div>Page not found</div>
+			</div>
+		</div>
+		<div class="span-2 clear blue nogutter" id="lCol">
+			<div class="span-2">
+				<h4>Join the RHS</h4>
+				<img src="/images/general/harlow.jpg" width="126" height="71" alt="Join the RHS" />
+				<p>RHS members enjoy The Garden magazine and garden visits all year</p>
+				<p><a href="http://apps.rhs.org.uk/ecommerce/default.aspx" target="_blank">Join now</a><br />
+					<a href="http://apps.rhs.org.uk/ecommerce/giftpackNew.aspx" target="_blank">Buy as a gift</a> </p>
+			</div>
+		</div>
+		<div class="span-7 red nogutter" id="mCol">
+			<div class="span-7">
+				<h2>Sorry, we couldn't find that page</h2>
+				<p>The page you are looking for may have been moved or deleted.</p>
+				<h3>You might want to&hellip;</h3>
+				<ul class="listindent">
+					<li>Make sure you entered the correct web address</li>
+					<li>Try searching our site (at the top of this page)</li>
+					<li><a href="http://www.rhs.org.uk">Go back to the RHS homepage</a></li>
+					<li><a href="http://www.rhs.org.uk/About-Us/Contact-us/">Contact us if you have a specific question</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="span-3 blue last" id="rCol">
+			<div class="span-3">
+				<h4>Support our campaigns & appeals</h4>
+				<img src="../images/general/spade.jpg" width="198" height="111" alt="Support our campaigns & appeals" />
+				<p>We receive no government funding, so to achieve our plans we need your help so that we can grow, preserve, protect and educate.</p>
+				<p><a href="http://www.rhs.org.uk/About-Us/Support-our-work/Current-Appeals">Find out more about our latest campaigns and appeals</a></p>
+			</div>
+		</div>
+
+	</div>
+
+	
+	</div>
+
+	   <div class="footer clr">
+        
+        <div class="foot-bg clr">
+            <div class="foot-row1 clr">
+                <div class="content">
+                    <div class="foot-about clr eHftrow1">
+                        <h2>About the RHS</h2>
+                        <p>We're a UK charity established to share the best in gardening. Our work is driven by our simple love of plants and the belief that gardeners make the world a better place.</p>
+                        <p><a href="https://www.rhs.org.uk/Misc-Pages/About-the-RHS">Learn more about the RHS</a></p>
+                    </div>
+                    <div class="foot-links clr eHftrow1">
+                        <h2>Useful links</h2>
+                        <ul>
+                            <li><a href="https://www.rhs.org.uk/About-the-RHS/Support-Us">Support us</a></li>
+                            <li><a href="https://www.rhs.org.uk/Contact-Us">Contact us</a></li>
+                            <li><a href="https://www.rhs.org.uk/Privacy">Privacy</a></li>
+                            <li><a href="https://www.rhs.org.uk/Work-for-the-RHS">Careers</a></li>
+                            <li><a href="http://press.rhs.org.uk/">Media centre</a></li>
+                        </ul>
+                    </div>
+                    <div class="foot-signup newsLetterBox clr eHftrow1">
+                        <fieldset>
+                            <label for="sign-up">Sign up for our free newsletter</label>
+                            <p>Keep up to date with what we're up to and how you can get involved. It's free and you don't have to be a member.</p>
+                            <input name="ctl00$ctl00$ctl00$ctl00$newsletterMonthly$txtNewsletterEmail" type="text" id="ctl00_ctl00_ctl00_ctl00_newsletterMonthly_txtNewsletterEmail" class="sign-up newsletterSignupEmail" placeholder="Enter your email address" />
+<input type="image" name="ctl00$ctl00$ctl00$ctl00$newsletterMonthly$btnNewsletter" id="ctl00_ctl00_ctl00_ctl00_newsletterMonthly_btnNewsletter" class="signup-btn newsLetterSignup" src="https://www.rhs.org.uk/assets/styles/images/bg/footer-signup.png" style="border-width:0px;" />
+<a id="clickid"></a>
+
+                           
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <div class="foot-row2 clr">
+                <div class="content">
+                    <div class="foot-follow clr eHftrow2">
+                        <h2>Follow us</h2>
+                        <ul class="clr">
+                            <li class="one"><a href="http://www.facebook.com/rhshome" target="_blank" onclick="_gaq.push(['_trackEvent', 'Social Media','Facebook','like']);">Like the RHS on Facebook</a></li>
+                            <li class="two"><a href="https://twitter.com/The_RHS" target="_blank" onclick="_gaq.push(['_trackEvent', 'Social Media','Twitter','Tweet']);">Follow the RHS on Twitter</a></li>
+                            <li class="three"><a href="http://www.youtube.com/user/RoyalHorticulturalSo" target="_blank" onclick="_gaq.push(['_trackEvent', 'Links','ExitLinks','http://www.youtube.com/user/RoyalHorticulturalSo']);">Subscribe to the RHS YouTube channel</a></li>
+                            <li class="four"><a href="http://www.pinterest.com/rhshome/" target="_blank" onclick="_gaq.push(['_trackEvent', 'Links','ExitLinks','http://www.pinterest.com/rhshome/']);">Follow the RHS on Pinterest</a></li>
+                            <li class="five"><a href="https://plus.google.com/111736480568679875427/posts" target="_blank" onclick="_gaq.push(['_trackEvent', 'Links','ExitLinks','https://plus.google.com/111736480568679875427/posts']);">Follow the RHS on Google+</a></li>
+                            <li class="six"><a href="http://instagram.com/The_RHS" target="_blank" onclick="_gaq.push(['_trackEvent', 'Links','ExitLinks','http://instagram.com/The_RHS']);">Follow the RHS on Instagram</a></li>
+                        </ul>
+                    </div>
+                    <div class="foot-media clr eHftrow2">
+                        <ul class="clr">
+                            <li class="one eHftrow2"><a href="https://itunes.apple.com/gb/podcast/the-rhs-gardening-podcast/id605769651?mt=2" onclick="_gaq.push(['_trackEvent', 'Links','ExitLinks','https://itunes.apple.com/gb/podcast/the-rhs-gardening-podcast/id605769651?mt=2']);">Download the RHS podcast</a></li>
+                            <li class="two eHftrow2"><a href="" onclick="_gaq.push(['_trackEvent', 'Links','ExitLinks','']);">Watch our latest video</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Ad module -->
+
+		    <div class="ad-box clr">
+		        <div class=" leaderboard">
+		            <div class="ad-dimensions clr">
+		                
+		                <!--JavaScript Tag with group ID // Tag for network 1113: Royal Horticultural Society // Website: www.rhs.org.uk -->
+		                <script type="text/javascript">
+		                <!--
+		                    if (window.adgroupid == undefined) {
+		                        window.adgroupid = Math.round(Math.random() * 1000);
+		                    }
+		                    document.write('<scr' + 'ipt language="javascript1.1" src="http://adserver.adtech.de/addyn/3.0/1113/2812444/0/225/ADTECH;loc=100;target=_blank;grp=' + window.adgroupid + ';misc=' + new Date().getTime() + '"></scri' + 'pt>');
+		                //-->
+		                </script><noscript><a href="http://adserver.adtech.de/adlink/3.0/1113/2812444/0/225/ADTECH;loc=300" target="_blank"><img src="http://adserver.adtech.de/adserv/3.0/1113/2812444/0/225/ADTECH;loc=300" border="0" width="728" height="90"></a></noscript>
+		                <!-- End of JavaScript Tag -->
+		                
+		            </div>
+		            
+		    </div>
+   
+             <br />          
+            <!-- /Ad module -->
+            </div>
+    </div>
+
+        
+    <div class="orglinks clr">
+        <div class="content">
+            <p class="copyright">
+                &copy; The Royal Horticultural Society
+                2016</p>
+                <p style=" float:right;"><a href="https://www.rhs.org.uk/about-the-rhs/mission-strategy">RHS Registered Charity no. 222879/SC038262</a></p>
+                
+        </div>
+    </div>
+
+</div>    
+
+<!-- Responsive -->
+
+<script src="https://www.rhs.org.uk/assets/csjs/rhs/responsive/rhs.js"></script>
+<script type="text/javascript" src="/js/init.js" ></script>
+
+
+<script src="https://www.rhs.org.uk/assets/csjs/jquery/jquery-jtemplates.js"></script>
+<script src="https://www.rhs.org.uk/assets/csjs/thirdparty/jqueryplugins/jquery.selectbox.min.js"></script>
+<script src="https://www.rhs.org.uk/assets/csjs/thirdparty/jqueryplugins/jquery.colorbox.js"></script>
+<script src="https://www.rhs.org.uk/assets/csjs/rhs/possible.js"></script>
+<script src="https://www.rhs.org.uk/assets/csjs/rhs/functions.js"></script>
+<script src="https://www.rhs.org.uk/assets/csjs/rhs/functionsrhs.js"></script>
+<script src="https://www.rhs.org.uk/assets/csjs/thirdparty/jQueryPlugins/jquery.cookie.js"></script>
+<script src="https://www.rhs.org.uk/assets/csjs/thirdparty/jQueryPlugins/jquery.cookiecuttr.js"></script>
+<script src="https://www.rhs.org.uk/assets/csjs/thirdparty/jQueryPlugins/jquery-ui-1.10.2.custom.min.js"></script>
+
+</form>
+
+</body>
+
+</html>
+</div>
+
+</body>
+</html>
