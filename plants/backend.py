@@ -70,57 +70,51 @@ class Search:
     """
     Assumes 'or' condition.
     In submit dict, 1 is True/selected
-    1. Convert submit into {attribute: [ls of acceptable values]
+    Input is {Attribute (Habit) : {Property 1 (Bushy): 1 (True) or 0 (False), ...}}
+
     """
 
     def __init__(self, submit):
-        if os.path.exists(plants_db) is False:
-            raise FileNotFoundError
         with open(plants_db, 'rb') as f:
             self.db = pickle.load(f)
-            if len(self.db) == 0:
-                raise Exception('plants.pkl is empty')
+        self.submit = submit
 
-        if type(submit) is not dict:
-            raise TypeError('Submit input is not a dictionary')
-        self.submit = self.convert_submit(submit)
-
-    @staticmethod
-    def convert_submit(submit):
+    def convert_submit(self):
+        """
+        Convert input to {property: [ls of attributes], ..}
+        """
         new_submit = {}
-        for attribute, values in submit.items():
+        for attribute, values in self.submit.items():
             new_submit.update({attribute: []})
-            for value, boolian in values.items():
-                if boolian == 1:
+            for value, boolean in values.items():
+                if boolean == 1:
                     new_submit[attribute].append(value)
+        self.submit = new_submit
         return new_submit
 
     def find_matches(self):
         plant_matches = []
-        for plant, attributes in self.db.items():  # plant, {foliage: [d, e], ...}
+        for plant, attributes in self.db.items():  # plant, {attribute: value}
             tracker = True
             for attribute, details in attributes.items():  # foliage, [d, e]
-                if details is None:  # Convert None value to 'None' so it matches the sumbit version of none
+                if details is None:  # Convert None value to 'None' so it matches the submit version of none
                     details = 'None'
-                if type(details) is not list:
+                if type(details) is not list:  # Just in case it's not a list.
                     details = [details]
                 if tracker is False:  # Breaks the loop is the plant has failed already to avoid extra computation.
                     continue
                 if attribute in self.submit:  # Check that attribute being looked at is in the submit dict.
-                    if any(detail in details for detail in
-                           self.submit[attribute]) is False:  # if none of [d, e] in submit[foliage] --> [d]:
+                    if any(detail in details for detail in self.submit[attribute]) is False:  # if none of [d, e] in submit[foliage] --> [d]:
                         tracker = False  # Change tracker to False as it failed this test and therefore this plant does not match.
             if tracker is True:
                 plant_matches.append(plant)
         return plant_matches
 
-    def matches_in_df(self):
+    def main(self):
+        self.submit = self.convert_submit()
         matches = self.find_matches()
         match_dict = {match: self.db[match] for match in matches}
         return match_dict
-
-    def main(self):
-        return self.matches_in_df()
 
 
 def favourites():
@@ -133,7 +127,6 @@ def favourites():
 
 
 def plant_options(options=None):
-
     """
     Returns the unique values for a given options. 
     :param options:
@@ -142,9 +135,9 @@ def plant_options(options=None):
     if options is None:
         options = ['Foligae', 'Habit', 'Hardiness', 'Sunlight', 'Aspect', 'Exposure', 'Soil_type', 'Moisture', 'pH',
                    'Max_height', 'Min_height', 'Max_spread', 'Min_spread', 'Time_to_height', 'Favourite']
-                   # 'plant_native', 'plant_is_fragrant', 'plant_awards', 'plant_pollination', 'plant_garden_type',
-                   # 'plant_planting_places', 'flower', 'foliage', 'fruit', 'stem', 'spring', 'summer', 'autumn',
-                   # 'winter', 'plant_plant_type']
+        # 'plant_native', 'plant_is_fragrant', 'plant_awards', 'plant_pollination', 'plant_garden_type',
+        # 'plant_planting_places', 'flower', 'foliage', 'fruit', 'stem', 'spring', 'summer', 'autumn',
+        # 'winter', 'plant_plant_type']
 
     options_dict = {}
     for option in options:
@@ -176,4 +169,4 @@ def plant_options(options=None):
 
 
 if __name__ == '__main__':
-    print(plant_options())
+    pass

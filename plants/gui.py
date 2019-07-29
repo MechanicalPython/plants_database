@@ -25,7 +25,6 @@ from PIL import Image, ImageTk
 
 from plants import backend
 from plants import convert_to_md
-from plants import rhs_scrape
 
 # Either uses plants/Resources or Contents/Resources if it's in a .app package.
 if os.path.exists(f'/Users/Matt/pyprojects/plants/Resources'):
@@ -71,11 +70,7 @@ class SelectionScreen(tk.Tk):
         self.options = OrderedDict(list_of_tuples)
 
         for attribute, properties in self.options.items():
-            attribute = attribute.replace('_', ' ').capitalize()
-            if 'max' in attribute.lower() or 'min' in attribute.lower():
-                attribute = f'{attribute} (Meters)'
 
-            properties = [str(p).replace('_', ' ').capitalize() for p in properties]
             self.checkbox_frame(title=attribute, options=properties, row=row, column=column)
             if column <= max_column_length:
                 column += 1
@@ -95,6 +90,10 @@ class SelectionScreen(tk.Tk):
         frame = tk.Frame(self)
         frame.grid(row=row, column=column, sticky=tk.N)
         frame.pack_propagate(1)
+
+        title = title.replace('_', ' ').capitalize()
+        if 'max' in title.lower() or 'min' in title.lower():
+            title = f'{title} (m)'
         label = tk.Label(frame, text=title, fg='red')
         label.grid(row=0, column=0)
 
@@ -104,9 +103,11 @@ class SelectionScreen(tk.Tk):
             options.append('None')
         else:
             options.sort()
+        options = [str(p).replace('_', ' ') for p in options]
 
         row = 1
         for option in options:
+            print(option)
             var = tk.IntVar()
             var.set(1)
             box = tk.Checkbutton(frame, text=str(option), variable=var)
@@ -132,11 +133,12 @@ class SelectionScreen(tk.Tk):
     def get_inputs(self):
         self.submit_button.config(relief='sunken')
         submit_values = {}
-        for title, attributes in self.checkbox_state.items():
-            submit_values.update({title: {}})
+        for property, attributes in self.checkbox_state.items():
+            submit_values.update({property: {}})
             for attribute, value in attributes.items():
                 value = value.get()
-                submit_values[title].update({attribute: value})
+                submit_values[property].update({attribute: value})
+        print('Start', submit_values)
         return_values = backend.Search(submit_values).main()
         self.submit_button.config(relief='raised')
         if len(return_values) == 0:
