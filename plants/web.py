@@ -20,8 +20,8 @@ from plants.util import sha1hash, timer
 
 from datetime import datetime as time
 
-if os.path.exists(f'/Users/Matt/pyprojects/plants/Resources'):
-    cache_dir = f'/Users/Matt/pyprojects/plants/Cache'
+if os.path.exists('/Users/Matt/Cache'):
+    cache_dir = '/Users/Matt/Cache'
 else:
     cache_dir = f"{__file__.split('.app')[0]}.app/Contents/Cache"
 
