@@ -444,6 +444,119 @@ class SinglePlantDetails:
         }
 
 
+class ExtraPlantData:
+    """
+    Gets other details that are only attainable from search criteria for some reason.
+    https://www.rhs.org.uk/Plants/Search-Results?f_plant_garden_type_architectural           =f%2Fplant_garden_type%2Farchitectural                   &form-mode=true&context=b%3D0%26hf%3D10%26l%3Den%26s%3Ddesc%2528plant_merged%2529%26sl%3DplantForm&unwind=undefined
+    https://www.rhs.org.uk/Plants/Search-Results?f_plant_garden_type_city___courtyard_gardens=f%2Fplant_garden_type%2Fcity%20%26%20courtyard%20gardens&form-mode=true&context=b%3D0%26hf%3D10%26l%3Den%26s%3Ddesc%2528plant_merged%2529%26sl%3DplantForm&unwind=undefined
+    https://www.rhs.org.uk/Plants/Search-Results?f_plant_garden_type_coastal                 =f%2Fplant_garden_type%2Fcoastal                         &form-mode=true&context=b%3D0%26hf%3D10%26l%3Den%26s%3Ddesc%2528plant_merged%2529%26sl%3DplantForm&unwind=undefined
+    Types are:
+        plant_native
+        plant_is_fragrant
+        plant_awards
+        plant_pollination
+        plant_garden_type
+        plant_planting_places
+        flower
+        foliage
+        fruit
+        stem
+        spring
+        summer
+        autumn
+        winter
+        plant_plant_type
+    :return: {plant latin name: {attribute: value, ...}
+    """
+    def __init__(self):
+        # replace {} with variable.
+        self.base_url = 'https://www.rhs.org.uk/Plants/Search-Results?{}={}&form-mode=true&context=b%3D0%26hf%3D10%26l%3Den%26s%3Ddesc%2528plant_merged%2529%26sl%3DplantForm&unwind=undefined'
+        with open(f'{resources_file}/plants.pkl', 'rb') as f:
+            self.plants_db = pickle.load(f)
+
+    # Get the extra data: {plant_latin_name: {d1: v, d2: v2...}}
+    # Merge it into the existing data
+
+    def main(self):
+        """
+        :return:
+        """
+        start_url = 'https://www.rhs.org.uk/Plants/Search-Results?form-mode=true'
+        refine_by = web.get_soup(start_url).find('div', {'class': 'find-plant-form-left'})
+
+        # ul, {data-facet-id: option}. For li in option, get input, value and enter to base_url.
+        options = ['plant_garden_type', 'plant_planting_places',
+                   'f/plant_colour_by_type/flower', 'f/plant_colour_by_type/foliage', 'f/plant_colour_by_type/fruit',
+                   'f/plant_colour_by_type/stem', 'f/plant_colour_by_season/spring', 'f/plant_colour_by_season/summer',
+                   'f/plant_colour_by_season/autumn', 'f/plant_colour_by_season/winter',
+                   'plant_plant_type']
+        # These options have no need to search for li, they just need to be added to the base url directly.
+        url_starts = ['f/plant_native/true', 'f/plant_is_fragrant/true', 'f/plant_awards/award of garden merit',
+                      'f/plant_pollination/true']
+
+        for option in options:
+            ul = refine_by.find('ul', {'data-facet-id': option})
+            for li in ul.find_all('li'):
+                url_starts.append(li.find('input').get('value'))
+        # pattern for options is f/category/value or f/category/subcat/value
+        for url in url_starts:  # url_input is the start page for several pages.
+            start_url = self.base_url.replace('{}', url)
+            value = url.split('/')[-1]  # Red or True
+            cat = url.split('/')[-2]  # spring or plant_native
+            plants_for_this_cat = self.plants_from_start_url(start_url)  # Dict of {plant_name: url}
+            print(cat, value)
+            for plant, plant_url in plants_for_this_cat.items():
+                if plant not in self.plants_db:
+                    print('Getting all data for ', plant)
+                    self.plants_db.update(SinglePlantDetails(plant_url).main())
+
+            for plant in self.plants_db.keys():
+                if plant in plants_for_this_cat:
+                    self.plants_db[plant].update({cat: value})
+                else:
+                    self.plants_db[plant].update({cat: None})
+        return self.plants_db
+
+    def plants_from_start_url(self, url):
+        """
+        Returns a dict of plants and their urls.
+        :param url:
+        :return:
+        """
+        plants = {}
+        while True:
+            print(url)
+            soup = web.get_soup(url)
+            plant_names = self.get_latin_names_from_search_page(soup)  # {name: details url}
+            plants.update(plant_names)
+            next_href = self.next_page(soup)
+            if next_href is None:
+                break
+            else:
+                url = next_href
+        return plants
+
+    @staticmethod
+    def get_latin_names_from_search_page(soup):
+        """Return {name: url}"""
+        names = {}
+        plants = soup.find_all('li', {'class': 'clr'})
+        for plant in plants:
+            tag = plant.find('a', {'class': 'Plant-formated-Name'})
+            name = tag.text.strip().replace('/', '')  # Remove the slashes for image names.
+            url = f"https://www.rhs.org.uk{tag.get('href')}"
+            names.update({name: url})
+        return names
+
+    @staticmethod
+    def next_page(soup):
+        pagenav_buttons = soup.find_all('a', {'class': 'pagenav'})
+        for pagenav_button in pagenav_buttons:
+            if pagenav_button.get('title') == 'Next':
+                return f"https://www.rhs.org.uk/Plants/Search-Results{pagenav_button.get('href')}"
+
+
+
 def main_downloader():
     """Threads SinglePlantDetails for all the soups"""
     details_href = f'{resources_file}/detailshref.pkl'
@@ -459,18 +572,23 @@ def main_downloader():
     url_head = 'https://www.rhs.org.uk'
     urls = [url_head + url for url in urls]
     return_details = {}
-    print(urls)
     for url in urls:
         print(url)
         try:
             soup = web.get_soup(url)
-            return_details.update(SinglePlantDetails(soup).main())
+            data = SinglePlantDetails(soup).main()
+            if data.keys() is None:
+                continue
+            return_details.update(data)
         except Exception as e:
             print(f'{__file__}: ERROR {e} for {url}')
             pass
     with open(f'{resources_file}/plants.pkl', 'wb') as output:
         pickle.dump(return_details, output)
     # Add extra metadata to the database
+    ExtraPlantData().main()
+    with open(f'{resources_file}/plants.pkl', 'wb') as output:
+        pickle.dump(return_details, output)
 
 
 def check_success():
@@ -492,8 +610,10 @@ def check_success():
 
 
 if __name__ == '__main__':
-    main_downloader()
-    # ExtraPlantData().main()
-    # check_success()
+    return_details = ExtraPlantData().main()
+    with open(f'{resources_file}/plants.pkl', 'wb') as output:
+        pickle.dump(return_details, output)
+
+
 # todo - Add None to new keys for plants that do not have values.
 # Order the keys so it looks nicer.
