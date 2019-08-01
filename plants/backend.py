@@ -56,11 +56,8 @@ Module must do the following:
 
 import os
 import pickle
+from plants import resources_file
 
-if os.path.exists(f'/Users/Matt/pyprojects/plants/Resources'):
-    resources_file = f'/Users/Matt/pyprojects/plants/Resources'
-else:
-    resources_file = f"{__file__.split('.app')[0]}.app/Contents/Resources"
 
 plants_db = f'{resources_file}/plants.pkl'
 favourites_path = f'{resources_file}/favourites.pkl'
@@ -134,10 +131,10 @@ def plant_options(options=None):
     """
     if options is None:
         options = ['Foligae', 'Habit', 'Hardiness', 'Sunlight', 'Aspect', 'Exposure', 'Soil_type', 'Moisture', 'pH',
-                   'Max_height', 'Min_height', 'Max_spread', 'Min_spread', 'Time_to_height', 'Favourite']
-        # 'plant_native', 'plant_is_fragrant', 'plant_awards', 'plant_pollination', 'plant_garden_type',
-        # 'plant_planting_places', 'flower', 'foliage', 'fruit', 'stem', 'spring', 'summer', 'autumn',
-        # 'winter', 'plant_plant_type']
+                   'Max_height', 'Min_height', 'Max_spread', 'Min_spread', 'Time_to_height', 'Favourite',
+                   'plant_native', 'plant_is_fragrant', 'plant_awards', 'plant_pollination', 'plant_garden_type',
+                   'plant_planting_places', 'flower', 'foliage', 'fruit', 'stem', 'spring', 'summer', 'autumn',
+                   'winter', 'plant_plant_type']
 
     options_dict = {}
     for option in options:

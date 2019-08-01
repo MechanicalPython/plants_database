@@ -13,11 +13,8 @@ Only works with typora probably.
 """
 import os
 import re
+from plants import resources_file
 
-if os.path.exists(f'/Users/Matt/pyprojects/plants/Resources'):
-    resources_file = f'/Users/Matt/pyprojects/plants/Resources'
-else:
-    resources_file = f"{__file__.split('.app')[0]}.app/Contents/Resources"
 
 downloads_file = f"{os.path.expanduser('~')}/Downloads"
 
