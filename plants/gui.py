@@ -25,7 +25,7 @@ from PIL import Image, ImageTk
 
 from plants import backend
 from plants import convert_to_md
-from plants import resources_file
+from plants import resources_file, get_plants_db
 # Either uses plants/Resources or Contents/Resources if it's in a .app package.
 
 

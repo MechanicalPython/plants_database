@@ -56,8 +56,7 @@ Module must do the following:
 
 import os
 import pickle
-from plants import resources_file
-
+from plants import resources_file, get_plants_db
 
 plants_db = f'{resources_file}/plants.pkl'
 favourites_path = f'{resources_file}/favourites.pkl'
@@ -72,8 +71,7 @@ class Search:
     """
 
     def __init__(self, submit):
-        with open(plants_db, 'rb') as f:
-            self.db = pickle.load(f)
+        self.db = get_plants_db()
         self.submit = submit
 
     def convert_submit(self):
@@ -140,8 +138,7 @@ def plant_options(options=None):
     for option in options:
         options_dict.update({option: []})
 
-    with open(f'{resources_file}/plants.pkl', 'rb') as f:
-        d = pickle.load(f)
+    d = get_plants_db()
     for plant, values in d.items():
         for attribute, value in values.items():  # foliage, yes/no
             if attribute in options_dict.keys():

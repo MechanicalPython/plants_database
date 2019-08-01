@@ -6,7 +6,7 @@ import pickle
 import requests
 import pprint as pp
 from plants import web
-from plants import resources_file
+from plants import resources_file, get_plants_db
 
 
 homepage = 'https://www.rhs.org.uk/Plants/Search-Results?form-mode=true'
@@ -468,8 +468,7 @@ class ExtraPlantData:
     def __init__(self):
         # replace {} with variable.
         self.base_url = 'https://www.rhs.org.uk/Plants/Search-Results?{}={}&form-mode=true&context=b%3D0%26hf%3D10%26l%3Den%26s%3Ddesc%2528plant_merged%2529%26sl%3DplantForm&unwind=undefined'
-        with open(f'{resources_file}/plants.pkl', 'rb') as f:
-            self.plants_db = pickle.load(f)
+        self.plants_db = get_plants_db()
 
     # Get the extra data: {plant_latin_name: {d1: v, d2: v2...}}
     # Merge it into the existing data
@@ -501,10 +500,8 @@ class ExtraPlantData:
             value = url.split('/')[-1]  # Red or True
             cat = url.split('/')[-2]  # spring or plant_native
             plants_for_this_cat = self.plants_from_start_url(start_url)  # Dict of {plant_name: url}
-            print(cat, value)
             for plant, plant_url in plants_for_this_cat.items():
                 if plant not in self.plants_db:
-                    print('Getting all data for ', plant)
                     self.plants_db.update(SinglePlantDetails(plant_url).main())
 
             for plant in self.plants_db.keys():
@@ -522,7 +519,6 @@ class ExtraPlantData:
         """
         plants = {}
         while True:
-            print(url)
             soup = web.get_soup(url)
             plant_names = self.get_latin_names_from_search_page(soup)  # {name: details url}
             plants.update(plant_names)
@@ -553,7 +549,6 @@ class ExtraPlantData:
                 return f"https://www.rhs.org.uk/Plants/Search-Results{pagenav_button.get('href')}"
 
 
-
 def main_downloader():
     """Threads SinglePlantDetails for all the soups"""
     details_href = f'{resources_file}/detailshref.pkl'
@@ -570,7 +565,6 @@ def main_downloader():
     urls = [url_head + url for url in urls]
     return_details = {}
     for url in urls:
-        print(url)
         try:
             soup = web.get_soup(url)
             data = SinglePlantDetails(soup).main()
@@ -607,9 +601,7 @@ def check_success():
 
 
 if __name__ == '__main__':
-    return_details = ExtraPlantData().main()
-    with open(f'{resources_file}/plants.pkl', 'wb') as output:
-        pickle.dump(return_details, output)
+    main_downloader()
 
 
 # todo - Add None to new keys for plants that do not have values.
