@@ -489,7 +489,7 @@ class ExtraPlantData:
         # These options have no need to search for li, they just need to be added to the base url directly.
         url_starts = ['f/plant_native/true', 'f/plant_is_fragrant/true', 'f/plant_awards/award of garden merit',
                       'f/plant_pollination/true']
-
+        categories = []
         for option in options:
             ul = refine_by.find('ul', {'data-facet-id': option})
             for li in ul.find_all('li'):
@@ -499,16 +499,32 @@ class ExtraPlantData:
             start_url = self.base_url.replace('{}', url)
             value = url.split('/')[-1]  # Red or True
             cat = url.split('/')[-2]  # spring or plant_native
-            plants_for_this_cat = self.plants_from_start_url(start_url)  # Dict of {plant_name: url}
-            for plant, plant_url in plants_for_this_cat.items():
+            categories.append(cat)
+            # Add value: cat to plants in the list.
+            print(cat, value)
+            plants_to_add = self.plants_from_start_url(start_url)  # Dict of {plant_name: url}
+
+            for plant, plant_url in plants_to_add.items():  # Add plant if plant not in main database
                 if plant not in self.plants_db:
                     self.plants_db.update(SinglePlantDetails(plant_url).main())
 
-            for plant in self.plants_db.keys():
-                if plant in plants_for_this_cat:
+            for plant in self.plants_db.keys():  # For plant in database, add the cat: value
+                if plant in plants_to_add:
                     self.plants_db[plant].update({cat: value})
-                else:
+
+        # Add None for missing values
+        for plant in self.plants_db.keys():
+            for cat in categories:
+                if cat not in self.plants_db[plant]:
                     self.plants_db[plant].update({cat: None})
+
+        remove_list = []
+        for plant, atts in get_plants_db().items():
+            if (sum(x is None for x in list(atts.values()))) > 12:  # 961 have more than 12 none values so remove those.
+                remove_list.append(plant)
+        for p in remove_list:
+            self.plants_db.pop(p, None)
+
         return self.plants_db
 
     def plants_from_start_url(self, url):
@@ -601,8 +617,9 @@ def check_success():
 
 
 if __name__ == '__main__':
-    main_downloader()
-
+    return_details = ExtraPlantData().main()
+    with open(f'{resources_file}/plants.pkl', 'wb') as output:
+        pickle.dump(return_details, output)
 
 # todo - Add None to new keys for plants that do not have values.
 # Order the keys so it looks nicer.

@@ -16,7 +16,6 @@ Min_spread
 Time_to_height
 """
 
-import os
 import tkinter as tk
 import tkinter.messagebox as msg
 from collections import OrderedDict
@@ -25,7 +24,7 @@ from PIL import Image, ImageTk
 
 from plants import backend
 from plants import convert_to_md
-from plants import resources_file, get_plants_db
+from plants import resources_file
 # Either uses plants/Resources or Contents/Resources if it's in a .app package.
 
 
@@ -135,8 +134,8 @@ class SelectionScreen(tk.Tk):
         self.submit_button.config(relief='raised')
         if len(return_values) == 0:
             msg.showinfo('Input Alert', 'Search yielded no results. Try widening the search')
-        elif len(return_values) > 50:
-            msg.showinfo('Input Alert', 'Too many search results (over 250), please narrow search')
+        elif len(return_values) > 100:
+            msg.showinfo('Input Alert', f'You have selected {len(return_values)}. Please narrow search (100 is limit)')
         else:
             msg.showinfo('Plants', f'You have selected {len(return_values)} plants')
             ConfirmationWindow(return_values)  # In new window, shows the plant and asks for confirmation in their use.
