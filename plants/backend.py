@@ -56,7 +56,17 @@ Module must do the following:
 
 import os
 import pickle
-from plants import resources_file, get_plants_db
+
+if os.path.exists(f'/Users/Matt/pyprojects/plants/Resources'):
+    resources_file = f'/Users/Matt/pyprojects/plants/Resources'
+else:
+    resources_file = f"{__file__.split('.app')[0]}.app/Contents/Resources"
+
+def get_plants_db():
+    with open(f'{resources_file}/plants.pkl', 'rb') as f:
+        plants = pickle.load(f)
+    return plants
+
 
 plants_db = f'{resources_file}/plants.pkl'
 favourites_path = f'{resources_file}/favourites.pkl'
