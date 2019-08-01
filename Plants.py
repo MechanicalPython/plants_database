@@ -8,7 +8,6 @@ from plants import resources_file
 
 
 if os.path.exists(f'{resources_file}/plants.pkl') is False:
-
     rhs_scrape.main_downloader()
 
 
