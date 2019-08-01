@@ -2,10 +2,12 @@
 /Resources/plant_images/
 /venv/
 /dist/
+/build/
 setup.py
 icon.icns
 icon.jpg
 /.idea/
 /__pycache__/
 /plants/__pycache__/
+*.cpython-37.pyc
 *.pyc
