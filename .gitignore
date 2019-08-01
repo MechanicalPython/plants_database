@@ -6,4 +6,6 @@ setup.py
 icon.icns
 icon.jpg
 /.idea/
-*.pcy
+/__pycache__/
+/plants/__pycache__/
+*.pyc
