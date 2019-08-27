@@ -1,4 +1,4 @@
-#! /usr/local/bin/python3.7
+#!/usr/bin/env python3
 
 """
 Utils file for stuff to do with the web like soup, caching webpages, etc.

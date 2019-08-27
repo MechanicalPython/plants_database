@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+
+
 """
 https://docs.python.org/3/library/tk.html
 GUI builder for the program. Must take inputs and give windows.

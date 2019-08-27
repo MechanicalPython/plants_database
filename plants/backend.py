@@ -1,4 +1,4 @@
-#! /usr/local/bin/python3
+#!/usr/bin/env python3
 """
 Handles the database.  The database is in a dictionary format:
     {plant latin name:  {'Image': 'Podophyllum delavayi.jpg',

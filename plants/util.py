@@ -1,4 +1,4 @@
-#! /usr/local/bin/python3.7
+#!/usr/bin/env python3
 
 """
 General functions that are needed in projects.

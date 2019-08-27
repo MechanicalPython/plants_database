@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """Scrapes the RHS database for all the plant details
 """
 
