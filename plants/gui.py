@@ -52,7 +52,6 @@ class SelectionScreen(tk.Tk):
 
     def __init__(self, options=None):
         super().__init__()
-        self.resizable(False, False)
         if not options:
             self.options = backend.plant_options()  # {attribute: [ls of unique properties]}
         else:
@@ -60,40 +59,69 @@ class SelectionScreen(tk.Tk):
 
         self.favs = backend.favourites()
         self.checkbox_state = {}
-        self.title('Plants')
-        row = 0
-        column = 0
-        max_column_length = 8
 
         order_of_keys = sorted(self.options, key=lambda k: (-len(self.options[k]), k))
         list_of_tuples = [(key, self.options[key]) for key in order_of_keys]
         self.options = OrderedDict(list_of_tuples)
+        # Ends all data loading
+        self.title('Plants')
+        self.geometry('900x600')
+        self.top_level_canvas = tk.Canvas(self)
 
+        self.top_frame = tk.Frame(self.top_level_canvas)
+        self.bottom_frame = tk.Frame(self)
+
+        # Scrollbar
+        self.scrollbar = tk.Scrollbar(self.top_level_canvas, orient='vertical', command=self.top_level_canvas.yview)
+        self.top_level_canvas.configure(yscrollcommand=self.scrollbar.set)
+
+        # Pack canvas and scrollbar
+        self.top_level_canvas.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+        self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+        self.canvas_frame = self.top_level_canvas.create_window((0, 0), window=self.top_frame)
+
+        row = 0
+        column = 0
+        max_column_length = 2
         for attribute, properties in self.options.items():
-            self.checkbox_frame(title=attribute, options=properties, row=row, column=column)
+            self.checkbox(title=attribute, options=properties, main_row=row, main_column=column)
             if column <= max_column_length:
                 column += 1
             else:
                 row += 1
                 column = 0
 
-        submit_frame = tk.Frame(self)
-        submit_frame.grid(row=row + 2, column=0, columnspan=max_column_length)
+        self.submit_button = tk.Button(self.bottom_frame, text='Submit', height=3, command=self.get_inputs)
 
-        self.submit_button = tk.Button(submit_frame, text='Submit', command=self.get_inputs, height=3)
-        self.submit_button.pack(fill='both', expand=True, side=tk.BOTTOM)
+        self.submit_button.pack(side=tk.BOTTOM, expand=True, fill=tk.X)
 
-        # self.view_favs = tk.Button(submit_frame, text='View Favourites', command=self.view_favourites)
+        self.bottom_frame.pack(side=tk.BOTTOM, fill=tk.X)
 
-    def checkbox_frame(self, title='Default', options=None, row=None, column=None):
-        frame = tk.Frame(self)
-        frame.grid(row=row, column=column, sticky=tk.N)
-        frame.pack_propagate(1)
+        self.bind("<Configure>", self.on_frame_configure)
+        self.bind_all("<MouseWheel>", self.mouse_scroll)
+        self.top_level_canvas.bind("<Configure>", self.task_width)
 
+    def on_frame_configure(self, event=None):
+        self.top_level_canvas.configure(scrollregion=self.top_level_canvas.bbox("all"))
+
+    def task_width(self, event=None):
+        canvas_width = event.width
+        self.top_level_canvas.itemconfig(self.canvas_frame, width=canvas_width)
+
+    def mouse_scroll(self, event):
+        if event.delta:
+            self.top_level_canvas.yview_scroll(int(-1 * event.delta), 'units')
+
+    def checkbox(self, title='Default', options=None, main_row=None, main_column=None):
+        frame = self.top_frame
+
+        subframe = tk.Frame(frame)
         display_title = title.replace('_', ' ').capitalize()
         if 'max' in display_title.lower() or 'min' in display_title.lower():
             display_title = f'{display_title} (m)'
-        label = tk.Label(frame, text=display_title, fg='red')
+
+        label = tk.Label(subframe, text=display_title, fg='red')
         label.grid(row=0, column=0)
 
         if 'None' in options:
@@ -107,7 +135,7 @@ class SelectionScreen(tk.Tk):
         for option in options:
             var = tk.IntVar()
             var.set(1)
-            box = tk.Checkbutton(frame, text=str(option).replace('_', ' '), variable=var)
+            box = tk.Checkbutton(subframe, text=str(option).replace('_', ' '), variable=var)
             box.grid(row=row, column=0, sticky=tk.W)
             row += 1
             if title in self.checkbox_state:
@@ -124,8 +152,10 @@ class SelectionScreen(tk.Tk):
                 for option in self.checkbox_state[title].keys():
                     self.checkbox_state[title][option].set(1)
 
-        select_all_button = tk.Button(frame, text='All', command=select_all)
+        select_all_button = tk.Button(subframe, text='All', command=select_all)
         select_all_button.grid(row=row + 1, sticky=tk.W)
+        print(main_row, main_column)
+        subframe.grid(row=main_row, column=main_column, sticky=tk.W)
 
     def get_inputs(self):
         self.submit_button.config(relief='sunken')
