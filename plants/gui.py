@@ -165,19 +165,20 @@ class ConfirmationWindow(tk.Toplevel):
         self.return_values = return_values
 
         self.title('Confirmation')
-        self.plants_canvas = tk.Canvas(self)
         self.geometry('1000x1000')
 
-        self.plants_frame = tk.Frame(self.plants_canvas)
+        self.top_level_canvas = tk.Canvas(self)
+
+        self.top_frame = tk.Frame(self.top_level_canvas)
         self.bottom_frame = tk.Frame(self)
 
-        self.scrollbar = tk.Scrollbar(self.plants_canvas, orient='vertical', command=self.plants_canvas.yview)
-        self.plants_canvas.configure(yscrollcommand=self.scrollbar.set)
+        self.scrollbar = tk.Scrollbar(self.top_level_canvas, orient='vertical', command=self.top_level_canvas.yview)
+        self.top_level_canvas.configure(yscrollcommand=self.scrollbar.set)
 
-        self.plants_canvas.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+        self.top_level_canvas.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
         self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
-        self.canvas_frame = self.plants_canvas.create_window((0, 0), window=self.plants_frame)
+        self.canvas_frame = self.top_level_canvas.create_window((0, 0), window=self.top_frame)
 
         self.confirm_window_check_box = {}
         row = 0
@@ -198,7 +199,7 @@ class ConfirmationWindow(tk.Toplevel):
 
         self.bind("<Configure>", self.on_frame_configure)
         self.bind_all("<MouseWheel>", self.mouse_scroll)
-        self.plants_canvas.bind("<Configure>", self.task_width)
+        self.top_level_canvas.bind("<Configure>", self.task_width)
 
     def select_all(self):
         values = [value.get() for value in list(self.confirm_window_check_box.values())]
@@ -234,7 +235,7 @@ class ConfirmationWindow(tk.Toplevel):
         :param attributes:
         :return:
         """
-        frame = self.plants_frame
+        frame = self.top_frame
 
         var = tk.IntVar()
         var.set(0)
@@ -262,15 +263,15 @@ class ConfirmationWindow(tk.Toplevel):
         details.grid(row=row, column=2, sticky=tk.E)
 
     def on_frame_configure(self, event=None):
-        self.plants_canvas.configure(scrollregion=self.plants_canvas.bbox("all"))
+        self.top_level_canvas.configure(scrollregion=self.top_level_canvas.bbox("all"))
 
     def task_width(self, event=None):
         canvas_width = event.width
-        self.plants_canvas.itemconfig(self.canvas_frame, width=canvas_width)
+        self.top_level_canvas.itemconfig(self.canvas_frame, width=canvas_width)
 
     def mouse_scroll(self, event):
         if event.delta:
-            self.plants_canvas.yview_scroll(int(-1 * event.delta), 'units')
+            self.top_level_canvas.yview_scroll(int(-1 * event.delta), 'units')
 
     @staticmethod
     def image_resize(imgx, imgy, newx, newy):
