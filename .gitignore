@@ -1,6 +1,5 @@
 /Cache/
 /Resources/plant_images/
-/venv/
 /dist/
 /build/
 setup.py
@@ -11,3 +10,4 @@ icon.jpg
 /plants/__pycache__/
 *.cpython-37.pyc
 *.pyc
+/venv/
