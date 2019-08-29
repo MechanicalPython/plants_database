@@ -1,8 +1,20 @@
 #!/usr/bin/env python3
 
+import sys
 
-from plants import gui
+if len(sys.argv) > 1:
+    if sys.argv[1] == '-U':
+        import updater
+        updater.update()
+        print('Updated to latest version')
+        quit()
+    else:
+        print('Incorrect flag. [-U] for update')
+        quit()
 
-app = gui.SelectionScreen()
-app.mainloop()
+else:
+    from plants import gui
+
+    app = gui.SelectionScreen()
+    app.mainloop()
 

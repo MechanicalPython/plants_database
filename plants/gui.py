@@ -154,7 +154,6 @@ class SelectionScreen(tk.Tk):
 
         select_all_button = tk.Button(subframe, text='All', command=select_all)
         select_all_button.grid(row=row + 1, sticky=tk.W)
-        print(main_row, main_column)
         subframe.grid(row=main_row, column=main_column, sticky=tk.W)
 
     def get_inputs(self):
