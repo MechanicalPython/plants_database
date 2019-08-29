@@ -14,10 +14,8 @@ Only works with typora probably.
 import os
 import re
 
-if os.path.exists(f'/Users/Matt/pyprojects/plants/Resources'):
-    resources_file = f'/Users/Matt/pyprojects/plants/Resources'
-else:
-    resources_file = f"{__file__.split('.app')[0]}.app/Contents/Resources"
+resources_file = f'{os.path.dirname(os.path.dirname(__file__))}/Resources'
+
 
 
 downloads_file = f"{os.path.expanduser('~')}/Downloads"

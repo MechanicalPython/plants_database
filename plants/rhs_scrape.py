@@ -9,17 +9,14 @@ import requests
 import pprint as pp
 from plants import web
 
-if os.path.exists(f'/Users/Matt/pyprojects/plants/Resources'):
-    resources_file = f'/Users/Matt/pyprojects/plants/Resources'
-else:
-    resources_file = f"{__file__.split('.app')[0]}.app/Contents/Resources"
+
+resources_file = f'{os.path.dirname(os.path.dirname(__file__))}/Resources'
 
 
 def get_plants_db():
     with open(f'{resources_file}/plants.pkl', 'rb') as f:
         plants = pickle.load(f)
     return plants
-
 
 
 homepage = 'https://www.rhs.org.uk/Plants/Search-Results?form-mode=true'

@@ -30,10 +30,8 @@ from plants import backend
 from plants import convert_to_md
 # Either uses plants/Resources or Contents/Resources if it's in a .app package.
 
-if os.path.exists(f'/Users/Matt/pyprojects/plants/Resources'):
-    resources_file = f'/Users/Matt/pyprojects/plants/Resources'
-else:
-    resources_file = f"{__file__.split('.app')[0]}.app/Contents/Resources"
+resources_file = f'{os.path.dirname(os.path.dirname(__file__))}/Resources'
+
 
 class SelectionScreen(tk.Tk):
     """

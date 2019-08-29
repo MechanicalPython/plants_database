@@ -5,25 +5,26 @@ Utils file for stuff to do with the web like soup, caching webpages, etc.
 """
 
 import os
-import json
 import ssl
 import bs4
 import requests
 import urllib.request
 import pickle
 import re
-
+import hashlib
 
 from functools import wraps
 from multiprocessing.dummy import Pool
-from plants.util import sha1hash, timer
 
 from datetime import datetime as time
 
-if os.path.exists('/Users/Matt/Cache'):
-    cache_dir = '/Users/Matt/Cache'
-else:
-    cache_dir = f"{__file__.split('.app')[0]}.app/Contents/Cache"
+
+cache_dir = '/Users/Matt/Cache'
+
+
+def sha1hash(string):
+    """Returns sha1 hexsigest which is 40 characters long"""
+    return hashlib.sha1(string.encode('utf-8')).hexdigest()
 
 
 def cache(func):
@@ -110,15 +111,6 @@ def get_soup(url, cache=True):
         with open(f'{cache_dir}/{urlhash}', 'wb') as writefile:
             pickle.dump(str(soup), writefile)
         return soup
-
-
-def jsonApi(url):
-    """Returns dict object"""
-    r = requests.get(url)# .encoding('utf-8')
-    if r.status_code is not 200:
-        raise requests.HTTPError('Not 200 status code for {}'.format(url))
-
-    return json.loads(requests.get(url).content.decode("utf-8"))
 
 
 if __name__ == '__main__':
