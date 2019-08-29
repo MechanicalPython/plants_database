@@ -5,7 +5,9 @@ import os
 
 
 def update():
-    subprocess.call('git pull origin master')
+    process = subprocess.Popen(["git", "pull", "origin", "master"], stdout=subprocess.PIPE)
+    output = process.communicate()[0]
 
     req_file = f'{os.path.dirname(__file__)}/requirements.txt'
-    subprocess.call(f'pip install -r {req_file}')
+    process = subprocess.Popen(["pip", "install", "-r", f'{req_file}'])
+    output = process.communicate()[0]

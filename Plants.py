@@ -17,5 +17,3 @@ else:
 
     app = gui.SelectionScreen()
     app.mainloop()
-
-# test change
